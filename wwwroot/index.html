@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Числа</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+</head>
+<body>
+    <h1>Числа</h1>
+
+    <div>
+        <h2>Первое число (HTTP): <span id="first-number"></span></h2>
+    </div>
+
+    <div>
+        <h2>Второе число (JS): <span id="second-number"></span></h2>
+    </div>
+
+    <div>
+        <h2>Третье число (SignalR): <span id="third-number"></span></h2>
+    </div>
+
+    <script>
+        var connection;
+
+        window.onload = function () {
+            requestFirstNumber();
+            generateSecondNumber();
+            startSignalR();
+        }
+
+        function generateSecondNumber() {
+            var randomNumber = Math.floor(Math.random() * 1000);
+            document.getElementById("second-number").textContent = randomNumber;
+        }
+
+        function startSignalR() {
+            connection = new signalR.HubConnectionBuilder()
+                .withUrl(window.location.origin + "/numberHub")
+                .build();
+
+            connection.on("ReceiveNumber", function (number) {
+                document.getElementById("third-number").textContent = number;
+            });
+
+            connection.start().then(function () {
+                console.log("SignalR connected.");
+            }).catch(function (error) {
+                console.error(error.toString());
+            });
+        }
+
+        function requestFirstNumber() {
+            $.ajax({
+                url: window.location.origin + "/api/getNumber",
+                method: "GET",
+                success: function (number) {
+                    document.getElementById("first-number").textContent = number;
+                },
+                error: function (xhr, status, error) {
+                    console.error("Ошибка при запросе первого числа:", error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

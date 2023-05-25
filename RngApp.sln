@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RngApp", "RngApp.csproj", "{A885BC32-0213-4EF9-901E-21C05F9214BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A885BC32-0213-4EF9-901E-21C05F9214BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A885BC32-0213-4EF9-901E-21C05F9214BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A885BC32-0213-4EF9-901E-21C05F9214BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A885BC32-0213-4EF9-901E-21C05F9214BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {926734C2-E8F1-4F64-94AE-C558BC357D94}
+	EndGlobalSection
+EndGlobal
